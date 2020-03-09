@@ -10,7 +10,7 @@ scalaVersion := "2.13.1"
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
 
-libraryDependencies ++= seq(
+libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "8.0.12",
   "com.typesafe.play" %% "play-slick" % "5.0.0",
   "com.typesafe.play" %% "play-slick-evolutions" % "5.0.0"

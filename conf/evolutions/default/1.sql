@@ -1,13 +1,11 @@
-# Todos schema
-
 # ---!Ups
 
-create table Todo(
-  id bigint NOT NULL AUTO_INCREMENT,
-  content varchar(255) NOT NULL,
-  PRIMARY KEY (id)
+create table User(
+  id into auto_increment primary key,
+  name varchar(255) NOT NULL,
+  mail varchar(255) NOT NULL
 );
 
 # ---!Downs
 
-drop table if exists Todo;
+drop table User;
