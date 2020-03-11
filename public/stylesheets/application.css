@@ -1,0 +1,9 @@
+@import url("./reset.css");
+@import url("./main.css");
+*{
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}

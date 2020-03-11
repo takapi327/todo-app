@@ -1,0 +1,35 @@
+.main{
+  background-color: tomato;
+  height: 100vh;
+}
+
+.tittle-icon{
+  padding-top: 300px;
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.iconbox{
+  background-color: orange;
+  border-radius: 25%;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+}
+
+.icon{
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  color: white;
+}
+
+.tittle{
+  padding-top: 300px;
+  font-size: 60px;
+  text-align: center;
+  letter-spacing:20px;
+  color: white;
+  font-family: Georgia;
+  font-weight: bold;
+}
