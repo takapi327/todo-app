@@ -27,6 +27,10 @@ class UserRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implici
   def list(): Future[Seq[User]] = db.run{
       user.result
   }
+
+  def create(name: String, mail: String):Future[Int] = db.run(
+    user += User(0, name, mail)
+  )
   // 下記の記述からuserテーブルにあるレコードを取り出す
   private val user = TableQuery[UserTable]
 }

@@ -19,4 +19,21 @@ class HomeController @Inject()(repository: UserRepository, cc: MessagesControlle
       Ok(views.html.index(user))
     }
   }
+
+  def sign() = Action { implicit request =>
+    Ok(views.html.sign(User.userForm))
+  }
+
+  def create() = Action.async { implicit request =>
+    User.userForm.bindFromRequest.fold(
+      errorForm => {
+        Future.successful(Ok(views.html.sign(errorForm)))
+      },
+      user => {
+        repository.create(user.name, user.mail).map { _ =>
+          Redirect(routes.HomeController.index)
+        }
+      }
+    )
+  }
 }
