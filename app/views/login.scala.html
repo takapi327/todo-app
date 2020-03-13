@@ -1,0 +1,10 @@
+@(loginUserForm:Form[LoginUser])(implicit request: MessagesRequestHeader)
+
+@main {
+  @helper.form(action=routes.HomeController.login()){
+    @helper.inputText(loginUserForm("name"))
+    @helper.inputText(loginUserForm("pass"))
+    <input type="submit" value="ログイン">
+  }
+  <a href="/">トップページ</a>
+}

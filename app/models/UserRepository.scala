@@ -19,17 +19,18 @@ class UserRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implici
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
     def name = column[String]("name")
     def mail = column[String]("mail")
+    def pass = column[String]("pass")
 
     // <>は双方向マッピング、インスタンスに変換しあう
-    def * = (id, name, mail) <> ((User.apply _).tupled, User.unapply)
+    def * = (id, name, mail, pass) <> ((User.apply _).tupled, User.unapply)
   }
 
   def list(): Future[Seq[User]] = db.run{
       user.result
   }
 
-  def create(name: String, mail: String):Future[Int] = db.run(
-    user += User(0, name, mail)
+  def create(name: String, mail: String, pass: String):Future[Int] = db.run(
+    user += User(0, name, mail, pass)
   )
   // 下記の記述からuserテーブルにあるレコードを取り出す
   private val user = TableQuery[UserTable]
