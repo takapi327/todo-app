@@ -1,0 +1,12 @@
+@(form:Form[TaskForm])(implicit request: MessagesRequestHeader)
+
+@main {
+  @helper.form(action=routes.TaskController.create()){
+    @helper.CSRF.formField
+    @helper.inputText(form("tittle"))
+    @helper.inputText(form("text"))
+    @helper.inputText(form("day"))
+    <input type="submit" value="Add Task" />
+  }
+  <a href="/">トップページ</a>
+}
