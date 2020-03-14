@@ -1,0 +1,10 @@
+@(loginUserForm:Form[LoginUser])(implicit request: MessagesRequestHeader)
+
+@main {
+  @helper.form( action = helper.CSRF(routes.HomeController.login)){
+    @helper.inputText(loginUserForm("name"), '_label -> "ログインNAME")
+    @helper.inputPassword(loginUserForm("pass"), '_label -> "パスワード")
+    <input type="submit" value="ログイン">
+  }
+  <a href="/">トップページ</a>
+}

@@ -1,0 +1,12 @@
+@(form:Form[UserForm])(implicit request: MessagesRequestHeader)
+
+@main {
+  @helper.form(action=routes.HomeController.create()){
+    @helper.CSRF.formField
+    @helper.inputText(form("name"))
+    @helper.inputText(form("mail"))
+    @helper.inputPassword(form("pass"))
+    <input type="submit" value="Add User" />
+  }
+  <a href="/">トップページ</a>
+}
