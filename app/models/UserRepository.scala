@@ -26,8 +26,12 @@ class UserRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implici
   }
 
   def list(): Future[Seq[User]] = db.run{
-      user.result
+    user.result
   }
+
+  // def get(id: Int): Future[User] = db.run {
+  //   user.filter(_.id === id).result.head
+  // }
 
   def create(name: String, mail: String, pass: String):Future[Int] = db.run(
     user += User(0, name, mail, pass)

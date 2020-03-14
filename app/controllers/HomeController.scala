@@ -14,18 +14,11 @@ import scala.concurrent.{ExecutionContext, Future}
 // UserRepositoryの記述でデータベースアクセス、MessagesControllerComponentsFormを扱えるようにする、ExecutionContextは非同期の処理、MessagesAbstractController(cc)エラーメッセージに対応
 class HomeController @Inject()(repository: UserRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
 
-
- val loginUserForm: Form[LoginUser] = Form( 
-      mapping(
-        "name" -> text.verifying("ユーザNAMEを入力してください" , {!_.isEmpty()}),
-        "pass" -> text.verifying("パスワードを入力してください" , {!_.isEmpty()})
-      )(LoginUser.apply)(LoginUser.unapply) 
-    )
   // トップページ表示
-  def index() = Action.async { implicit request => 
-    repository.list().map {user =>
-      Ok(views.html.index(user))
-    }
+  def index() = Action { implicit request => 
+    // repository.list().map {user =>
+      Ok(views.html.index())
+    // }
   }
 
   // 新規登録画面に推移
@@ -49,19 +42,23 @@ class HomeController @Inject()(repository: UserRepository, cc: MessagesControlle
 
   // ログイン画面に推移
    def log() = Action { implicit request =>
-    Ok(views.html.login(loginUserForm))
+    Ok(views.html.login(User.loginUserForm))
   }
 
-  def login() = Action.async {implicit request: Request[AnyContent] =>
-    loginUserForm.bindFromRequest.fold(
+  def login() = Action.async {implicit request =>
+    User.loginUserForm.bindFromRequest.fold(
       errors => {
-        // Future.successful(Ok(views.html.login(errors)))
+        Future.successful(Ok(views.html.login(errors)))
         // BadRequest(views.html.login(errors))
-        Ok(views.html.login(errors))
+        // Ok(views.html.login(errors))
       },
       success => {
-        val loginUser = loginUserForm.bindFromRequest.get
-        Ok(views.html.loginSuccess())
+        repository.list().map {user =>
+          Ok(views.html.loginSuccess(user))
+        }
+        // val loginUser = User.loginUserForm.bindFromRequest.get
+        // Ok(views.html.loginSuccess())
+        // Redirect(routes.HomeController.index)
       }
     )
   }
