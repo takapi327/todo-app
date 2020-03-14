@@ -1,0 +1,91 @@
+.task-page{
+  background: linear-gradient(teal, #E6FFE9);
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.task-header{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.my-task{
+  font-size: 50px;
+  font-family: serif;
+  font-weight: bold;
+  color: white;
+}
+
+.top{
+  margin-top: 15px;
+  height: 50px;
+  color: white;
+}
+
+.task{
+  width: 80%;
+  margin: 5px auto;
+  display: flex;
+  padding: 0 100px 0 0;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.task-icon{
+  height: 50px;
+  width: 10%;
+  text-align: center;
+}
+
+.delete{
+  /* size: 2rem; */
+  height: 50px;
+  color: #444444;
+  /* width: 10%; */
+}
+
+.task-box{
+  width: 70%;
+}
+
+.task-tittle{
+  font-size: 30px;
+  font-family: serif;
+  color: #444444;
+  margin: 5px 0;
+}
+
+.task-text{
+  color: #999999;
+  margin: 5px 0;
+}
+
+
+.task-day{
+  width: 20%;
+  text-align: right;
+  color: #666666;
+  font-size: 20px;
+}
+
+.add-task{
+  display:block;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 80%;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 20px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+}
