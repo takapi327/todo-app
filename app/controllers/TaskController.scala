@@ -17,7 +17,7 @@ class TaskController @Inject()(repository: TaskRepository, cc: MessagesControlle
    // トップページ表示
   def index() = Action.async { implicit request => 
     repository.list().map { task =>
-      Ok(views.html.task.index(task))
+      Ok(views.html.task.index(task, Task.taskForm))
     }
   }
 
@@ -37,5 +37,17 @@ class TaskController @Inject()(repository: TaskRepository, cc: MessagesControlle
         }
       }
     )
+  }
+
+  def delete(id: Int) = Action.async { implicit request =>
+    repository.get(id).map { task =>
+      Ok(views.html.task.delete(task, id))
+    }
+  }
+
+  def remove(id: Int) = Action.async { implicit request =>
+    repository.delete(id).map { _ =>
+      Redirect(routes.TaskController.index)
+    }
   }
 }

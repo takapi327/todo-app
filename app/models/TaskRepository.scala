@@ -29,9 +29,18 @@ class TaskRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implici
     task.result
   }
 
+  def get(id: Int): Future[Task] = db.run {
+    task.filter(_.id === id).result.head
+  }
+
   def create(tittle: String, text: String, day: String):Future[Int] = db.run(
     task += Task(0, tittle, text, day)
   )
+
+  def delete(id: Int):Future[Int] = {db.run(
+    task.filter(_.id === id).delete
+    )
+  }
 
   private val task = TableQuery[TaskTable]
 }

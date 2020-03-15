@@ -1,6 +1,7 @@
 @(form:Form[TaskForm])(implicit request: MessagesRequestHeader)
 
 @main {
+  <h1>正しい方法で入力してください</h1>
   @helper.form(action=routes.TaskController.create()){
     @helper.CSRF.formField
     @helper.inputText(form("tittle"))

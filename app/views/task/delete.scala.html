@@ -1,0 +1,14 @@
+@(data:Task, id:Int)(implicit request: MessagesRequestHeader)
+
+@main {
+  <p>ID = @id</p>
+  <ul>
+    <li>tittle: @data.tittle</li>
+    <li>text: @data.text</li>
+    <li>day: @data.day</li>
+  </ul>
+  @helper.form(action=routes.TaskController.remove(id)){
+    @helper.CSRF.formField
+    <button>Delete Task</button>
+  }
+}
