@@ -26,6 +26,7 @@ class TaskController @Inject()(repository: TaskRepository, cc: MessagesControlle
     Ok(views.html.task.add(Task.taskForm))
   }
 
+  // 作成
   def create() = Action.async { implicit request =>
     Task.taskForm.bindFromRequest.fold(
       taskerror => {
@@ -39,12 +40,14 @@ class TaskController @Inject()(repository: TaskRepository, cc: MessagesControlle
     )
   }
 
+  // 削除画面に推移
   def delete(id: Int) = Action.async { implicit request =>
     repository.get(id).map { task =>
       Ok(views.html.task.delete(task, id))
     }
   }
 
+  // 削除
   def remove(id: Int) = Action.async { implicit request =>
     repository.delete(id).map { _ =>
       Redirect(routes.TaskController.index)
