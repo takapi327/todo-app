@@ -17,5 +17,8 @@ POST    /taskcreate                 controllers.TaskController.create()
 GET     /taskdelete/:id             controllers.TaskController.delete(id:Int)
 POST    /taskremove/:id             controllers.TaskController.remove(id:Int)
 
+# 買い物関係のコントローラー
+GET     /buy                        controllers.BuyController.index()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
