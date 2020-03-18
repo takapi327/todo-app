@@ -3,12 +3,19 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
-# An example controller showing a sample home page
+# ユーザー関係のコントローラー
 GET     /                           controllers.HomeController.index()
 GET     /sign                       controllers.HomeController.sign()
 POST    /create                     controllers.HomeController.create()
 GET     /log                        controllers.HomeController.log()
 POST    /login                      controllers.HomeController.login()
+
+# タスク関係のコントローラー
+GET     /task                       controllers.TaskController.index()
+GET     /add                        controllers.TaskController.add()
+POST    /taskcreate                 controllers.TaskController.create()
+GET     /taskdelete/:id             controllers.TaskController.delete(id:Int)
+POST    /taskremove/:id             controllers.TaskController.remove(id:Int)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

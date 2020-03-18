@@ -1,0 +1,154 @@
+.task-page{
+  background: linear-gradient(teal, #E6FFE9);
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.task-header{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.my-task{
+  font-size: 50px;
+  font-family: serif;
+  font-weight: bold;
+  color: white;
+}
+
+.top{
+  margin-top: 15px;
+  height: 50px;
+  color: white;
+}
+
+.task{
+  width: 80%;
+  margin: 5px auto;
+  display: flex;
+  padding: 0 100px 0 0;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.task-icon{
+  height: 50px;
+  width: 10%;
+  text-align: center;
+}
+
+.delete{
+  /* size: 2rem; */
+  height: 50px;
+  color: #444444;
+  /* width: 10%; */
+}
+
+.task-box{
+  width: 70%;
+}
+
+.task-tittle{
+  font-size: 30px;
+  font-family: serif;
+  color: #444444;
+  margin: 5px 0;
+}
+
+.task-text{
+  color: #999999;
+  margin: 5px 0;
+}
+
+
+.task-day{
+  width: 20%;
+  text-align: right;
+  color: #666666;
+  font-size: 20px;
+}
+
+.add-task{
+  display:block;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 80%;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 20px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+/* モーダルウィンドウ関連 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content{
+background-color: white;
+width: 1000px;
+margin: 10% auto;
+padding: 40px 0;
+text-align: center;
+}
+
+.task-input{
+  width: 100%;
+  margin: 10px auto;
+}
+
+input{
+  width: 80%;
+  height: 50px;
+  background-color: #EEEEEE;
+  border: 1px solid #ccc;
+  /* margin: 0 auto; */
+}
+
+.info{
+  display: none;
+}
+
+.add{
+  width: 200px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: transparent;
+  color: #3169d1 !important;
+  -webkit-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+  background: -webkit-linear-gradient(180deg, rgba(49,105,209,0.8), rgba(132, 179, 252, 0.8), rgba(205, 200, 252, 0), rgba(205, 200, 252, 0));
+  background: -webkit-linear-gradient(right, rgba(49,105,209,0.8), rgba(132, 179, 252, 0.8), rgba(205, 200, 252, 0), rgba(205, 200, 252, 0));
+  background: linear-gradient(270deg, rgba(49,105,209,0.8), rgba(132, 179, 252, 0.8), rgba(205, 200, 252, 0), rgba(205, 200, 252, 0));
+  background-position: 1% 50%;
+  background-size: 300% 300%;
+  border: none;
+  border: 1px solid #3169d1;
+}
+
+.add:hover{
+  background-position: 99% 50%;
+  color: #fff !important;
+  border: 1px solid rgba(205, 200, 252, 0);
+}
