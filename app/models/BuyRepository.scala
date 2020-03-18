@@ -26,5 +26,9 @@ class BuyRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implicit
     buy.result
   }
 
+  def create(product: String, quantity: String, price: String):Future[Int] = db.run(
+    buy += Buy(0, product, quantity, price)
+  )
+
   private val buy = TableQuery[BuyTable]
 }

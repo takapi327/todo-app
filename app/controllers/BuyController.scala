@@ -18,4 +18,17 @@ class BuyController @Inject()(repository: BuyRepository, cc: MessagesControllerC
       Ok(views.html.buy.index(buy, Buy.buyForm))
     }
   }
+
+  def create() = Action.async { implicit request =>
+    Buy.buyForm.bindFromRequest.fold(
+      buyerror => {
+        Future.successful(Ok(views.html.buy.add(buyerror)))
+      },
+      buy => {
+        repository.create(buy.product, buy.quantity, buy.price).map { _ =>
+          Redirect(routes.BuyController.index)
+        }
+      }
+    )
+  }
 }

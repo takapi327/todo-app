@@ -1,12 +1,13 @@
-@(data:Seq[models.Buy], form:Form[BuyForm])(implicit request: MessagesRequestHeader)
+@(form:Form[BuyForm])(implicit request: MessagesRequestHeader)
 
 @main {
-  <p>買い物リスト</p>
+  <h1>正しい方法で入力してください</h1>
   @helper.form(action=routes.BuyController.create()){
     @helper.CSRF.formField
     @helper.inputText(form("product"))
     @helper.inputText(form("quantity"))
     @helper.inputText(form("price"))
-    <input type="submit" value="買い物リスト登録">
+    <input type="submit" value="Add Buy" />
   }
+  <a href="/">トップページ</a>
 }
